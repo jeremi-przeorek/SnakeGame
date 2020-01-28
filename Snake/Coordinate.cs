@@ -20,5 +20,14 @@ namespace Snake
         }
         public int X { get; set; }
         public int Y { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (this.X == ((Coordinate)obj).X && this.Y == ((Coordinate)obj).Y)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

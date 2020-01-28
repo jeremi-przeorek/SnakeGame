@@ -11,6 +11,7 @@ namespace Snake
             double frameRate = 1000 / 5.0;
             DateTime lastDate = DateTime.Now;
             Snack snack = new Snack();
+            Snake snake = new Snake();
             //game loop
             while(!exit)
             {
@@ -24,22 +25,37 @@ namespace Snake
                             exit = true;
                             break;
                         case ConsoleKey.LeftArrow:
-                            //x
+                            snake.CurrDirection = Direction.Left;
                             break;
                         case ConsoleKey.RightArrow:
-                            //x
+                            snake.CurrDirection = Direction.Right;
                             break;
                         case ConsoleKey.UpArrow:
-                            //x
+                            snake.CurrDirection = Direction.Up;
                             break;
                         case ConsoleKey.DownArrow:
-                            //x
+                            snake.CurrDirection = Direction.Down;
                             break;
                     }
                 }
                 if((DateTime.Now - lastDate).TotalMilliseconds >= frameRate)
                 {
-                    //game action
+                    snake.Move();
+
+                    if(snake.GameOver)
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"GAME OVER. YOUR SCORE = {snake.Lenght}");
+                        exit = true;
+                        Console.ReadLine();
+                    }
+
+                    if(snake.HeadCoordinate.Equals(snack.CurrentTarget))
+                    {
+                        snake.EatSnack();
+                        snack = new Snack();
+                    }
+
                     lastDate = DateTime.Now;
                 }
             }
