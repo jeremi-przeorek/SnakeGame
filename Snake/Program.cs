@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Snake
 {
@@ -11,14 +7,40 @@ namespace Snake
         static void Main(string[] args)
         {
             bool exit = false;
+            double frameRate = 1000 / 5.0;
+            DateTime lastDate = DateTime.Now;
+            Snack snack = new Snack();
             //game loop
             while(!exit)
             {
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo input = Console.ReadKey();
+
+                    switch(input.Key)
+                    {
+                        case ConsoleKey.Escape:
+                            exit = true;
+                            break;
+                        case ConsoleKey.LeftArrow:
+                            //x
+                            break;
+                        case ConsoleKey.RightArrow:
+                            //x
+                            break;
+                        case ConsoleKey.UpArrow:
+                            //x
+                            break;
+                        case ConsoleKey.DownArrow:
+                            //x
+                            break;
+                    }
                 }
-                Console.WriteLine(input);
+                if((DateTime.Now - lastDate).TotalMilliseconds >= frameRate)
+                {
+                    //game action
+                    lastDate = DateTime.Now;
+                }
             }
         }
     }
