@@ -82,7 +82,7 @@ namespace Snake
         {
             if (Console.KeyAvailable)
             {
-                ConsoleKeyInfo input = Console.ReadKey();
+                ConsoleKeyInfo input = Console.ReadKey(true);
 
                 if (typesOfSteering == TypesOfSteering.arrows)
                 {
