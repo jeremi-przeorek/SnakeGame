@@ -25,7 +25,7 @@ namespace Snake
         {
             get { return Tail.Where(c => c.X == HeadCoordinate.X && c.Y == HeadCoordinate.Y).ToList().Count > 1 || outOfRange; }
         }
-        async public void EatSnack()
+        public void EatSnack()
         {
             Lenght++;
             Task task = new Task(BeepAfterEat);
