@@ -15,29 +15,7 @@ namespace Snake
             //game loop
             while(!exit)
             {
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo input = Console.ReadKey();
-
-                    switch(input.Key)
-                    {
-                        case ConsoleKey.Escape:
-                            exit = true;
-                            break;
-                        case ConsoleKey.LeftArrow:
-                            snake.CurrDirection = Direction.Left;
-                            break;
-                        case ConsoleKey.RightArrow:
-                            snake.CurrDirection = Direction.Right;
-                            break;
-                        case ConsoleKey.UpArrow:
-                            snake.CurrDirection = Direction.Up;
-                            break;
-                        case ConsoleKey.DownArrow:
-                            snake.CurrDirection = Direction.Down;
-                            break;
-                    }
-                }
+                snake.ChangeDirection();
                 if((DateTime.Now - lastDate).TotalMilliseconds >= frameRate)
                 {
                     snake.Move();

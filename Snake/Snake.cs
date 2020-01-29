@@ -72,6 +72,31 @@ namespace Snake
         {
             Console.Beep();
         }
+
+        public void ChangeDirection()
+        {
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo input = Console.ReadKey();
+
+                switch (input.Key)
+                {
+                    case ConsoleKey.LeftArrow:
+                        this.CurrDirection = Direction.Left;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        this.CurrDirection = Direction.Right;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        this.CurrDirection = Direction.Up;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        this.CurrDirection = Direction.Down;
+                        break;
+                }
+            }
+        }
+
     }
     public enum Direction { Left,Right,Up,Down}
 
