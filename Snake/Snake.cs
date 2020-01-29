@@ -25,10 +25,11 @@ namespace Snake
         {
             get { return Tail.Where(c => c.X == HeadCoordinate.X && c.Y == HeadCoordinate.Y).ToList().Count > 1 || outOfRange; }
         }
-        public void EatSnack()
+        async public void EatSnack()
         {
             Lenght++;
-            Console.Beep();
+            Task task = new Task(BeepAfterEat);
+            task.Start();
         }
 
         public void Move()
@@ -67,6 +68,11 @@ namespace Snake
                 outOfRange = true;
             }
         }
+        async private void BeepAfterEat()
+        {
+            Console.Beep();
+        }
     }
     public enum Direction { Left,Right,Up,Down}
+
 }
