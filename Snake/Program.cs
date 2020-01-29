@@ -54,6 +54,11 @@ namespace Snake
                     {
                         snake.EatSnack();
                         snack = new Snack();
+                        if(snack.IsInSnake(snake))
+                        {
+                            snack.Erase();
+                            snack = new Snack();
+                        }
                     }
 
                     lastDate = DateTime.Now;
