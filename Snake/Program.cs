@@ -8,7 +8,7 @@ namespace Snake
         {
             Console.CursorVisible = false;
             bool exit = false;
-            double frameRate = 1000 / 5.0;
+            double frameRate = 1000 / 20.0;
             DateTime lastDate = DateTime.Now;
             Snack snack = new Snack();
             Snake snake = new Snake();
@@ -54,7 +54,7 @@ namespace Snake
                     {
                         snake.EatSnack();
                         snack = new Snack();
-                        if(snack.IsInSnake(snake))
+                        while(snack.IsInSnake(snake))
                         {
                             snack.Erase();
                             snack = new Snack();
