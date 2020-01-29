@@ -8,7 +8,7 @@ namespace Snake
 {
     public class Snake : ISnake
     {
-        public Snake() 
+        public Snake()
         {
             HeadCoordinate = new Coordinate();
         }
@@ -16,11 +16,16 @@ namespace Snake
         {
             HeadCoordinate = new Coordinate(startX, startY);
         }
+        public Snake(int startX, int startY, int typesOfSteering) : this(startX, startY)
+        {
+            this.typesOfSteering = (TypesOfSteering)typesOfSteering;
+        }
         public int Lenght { get; set; } = 20;
         public Direction CurrDirection { get; set; } = Direction.Right;
         public Coordinate HeadCoordinate { get; set; }
         public List<Coordinate> Tail { get; set; } = new List<Coordinate>();
         private bool outOfRange = false;
+        private TypesOfSteering typesOfSteering = TypesOfSteering.arrows;
         public bool GameOver
         {
             get { return Tail.Where(c => c.X == HeadCoordinate.X && c.Y == HeadCoordinate.Y).ToList().Count > 1 || outOfRange; }
@@ -79,25 +84,47 @@ namespace Snake
             {
                 ConsoleKeyInfo input = Console.ReadKey();
 
-                switch (input.Key)
+                if (typesOfSteering == TypesOfSteering.arrows)
                 {
-                    case ConsoleKey.LeftArrow:
-                        this.CurrDirection = Direction.Left;
-                        break;
-                    case ConsoleKey.RightArrow:
-                        this.CurrDirection = Direction.Right;
-                        break;
-                    case ConsoleKey.UpArrow:
-                        this.CurrDirection = Direction.Up;
-                        break;
-                    case ConsoleKey.DownArrow:
-                        this.CurrDirection = Direction.Down;
-                        break;
+                    switch (input.Key)
+                    {
+                        case ConsoleKey.LeftArrow:
+                            this.CurrDirection = Direction.Left;
+                            break;
+                        case ConsoleKey.RightArrow:
+                            this.CurrDirection = Direction.Right;
+                            break;
+                        case ConsoleKey.UpArrow:
+                            this.CurrDirection = Direction.Up;
+                            break;
+                        case ConsoleKey.DownArrow:
+                            this.CurrDirection = Direction.Down;
+                            break;
+                    }
+                }
+                if (typesOfSteering == TypesOfSteering.wsad)
+                {
+                    switch (input.Key)
+                    {
+                        case ConsoleKey.A:
+                            this.CurrDirection = Direction.Left;
+                            break;
+                        case ConsoleKey.D:
+                            this.CurrDirection = Direction.Right;
+                            break;
+                        case ConsoleKey.W:
+                            this.CurrDirection = Direction.Up;
+                            break;
+                        case ConsoleKey.S:
+                            this.CurrDirection = Direction.Down;
+                            break;
+                    }
                 }
             }
         }
 
     }
     public enum Direction { Left,Right,Up,Down}
+    public enum TypesOfSteering { wsad, arrows};
 
 }
