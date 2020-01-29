@@ -16,13 +16,39 @@ namespace Snake
             CurrentTarget = new Coordinate(x, y);
             Draw();
         }
+        public Snack(int x, int y)
+        {
+            CurrentTarget = new Coordinate(x, y);
+            Draw();
+        }
         public Coordinate CurrentTarget { get; set; }
 
         public void Draw()
         {
-            Console.SetCursorPosition(CurrentTarget.X, CurrentTarget.Y);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("$");
+            if (!Console.IsOutputRedirected)
+            {
+                Console.SetCursorPosition(CurrentTarget.X, CurrentTarget.Y);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("$");
+            }
+        }
+
+        public void Erase()
+        {
+            if (!Console.IsOutputRedirected)
+            {
+                Console.SetCursorPosition(CurrentTarget.X, CurrentTarget.Y);
+                Console.WriteLine(" ");
+            }
+        }
+
+        public bool IsInSnake(Snake snake)
+        {
+            if(snake.Tail.Where( c => c.Equals(this.CurrentTarget)).ToList().Count > 0 || snake.HeadCoordinate.Equals(this.CurrentTarget))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
