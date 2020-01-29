@@ -3,13 +3,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-#Jeremi's ignore
-#Authentication for Codewars
-CodewarsAuthentication.cs
-#HTML for downloading data
-jeremi.przeorek _ Codewars.html
-jeremi.przeorek _ Codewars_files
-
 # User-specific files
 *.rsuser
 *.suo
