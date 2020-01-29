@@ -28,6 +28,7 @@ namespace Snake
         public void EatSnack()
         {
             Lenght++;
+            Console.Beep();
         }
 
         public void Move()
