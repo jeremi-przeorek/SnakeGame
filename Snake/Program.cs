@@ -45,6 +45,7 @@ namespace Snake
                     if(snake.GameOver)
                     {
                         Console.Clear();
+                        Console.SetCursorPosition(20, 10);
                         Console.WriteLine($"GAME OVER. YOUR SCORE = {snake.Lenght}");
                         exit = true;
                         Console.ReadLine();
