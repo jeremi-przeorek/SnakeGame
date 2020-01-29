@@ -8,10 +8,18 @@ namespace Snake
 {
     public class Snake : ISnake
     {
-        public int Lenght { get; set; } = 5;
+        public Snake() 
+        {
+            HeadCoordinate = new Coordinate();
+        }
+        public Snake(int startX, int startY)
+        {
+            HeadCoordinate = new Coordinate(startX, startY);
+        }
+        public int Lenght { get; set; } = 20;
         public Direction CurrDirection { get; set; } = Direction.Right;
-        public Coordinate HeadCoordinate { get; set; } = new Coordinate();
-        List<Coordinate> Tail { get; set; } = new List<Coordinate>();
+        public Coordinate HeadCoordinate { get; set; }
+        public List<Coordinate> Tail { get; set; } = new List<Coordinate>();
         private bool outOfRange = false;
         public bool GameOver
         {
