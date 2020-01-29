@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Snake
 {
@@ -8,22 +9,15 @@ namespace Snake
         {
             Console.CursorVisible = false;
             bool exit = false;
-            double frameRate = 1000 / 20.0;
-            DateTime lastDate = DateTime.Now;
-            TheGame theGame = new TheGame(1,1);
-            //game loop
-            while(!exit)
-            {
-                theGame.ChangeSnakesDirections();
-                if((DateTime.Now - lastDate).TotalMilliseconds >= frameRate)
-                {
-                    theGame.MoveSnakes();
-                    theGame.CheckIfSnakesAteSnack();
-                    theGame.EndGameCheck();
+            
+            TheGame theGame = new TheGame(2,1);
 
-                    lastDate = DateTime.Now;
-                }
-            }
+            Task player1Game = new Task(theGame.StartGamePlayer1);
+            player1Game.Start();
+            Task player2Game = new Task(theGame.StartGamePlayer2);
+            player2Game.Start();
+
+            Task.WaitAll(player1Game, player2Game);
         }
     }
 }
