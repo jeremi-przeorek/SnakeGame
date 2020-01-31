@@ -39,7 +39,7 @@ namespace Snake
 
         public void Move()
         {
-            switch(CurrDirection)
+            switch (CurrDirection)
             {
                 case Direction.Left:
                     HeadCoordinate.X--;
@@ -60,7 +60,7 @@ namespace Snake
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("@");
                 Tail.Add(new Coordinate(HeadCoordinate.X, HeadCoordinate.Y));
-                if(Tail.Count > this.Lenght)
+                if (Tail.Count > this.Lenght)
                 {
                     var endTail = Tail.First();
                     Console.SetCursorPosition(endTail.X, endTail.Y);
@@ -68,7 +68,7 @@ namespace Snake
                     Tail.Remove(endTail);
                 }
             }
-            catch(ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException)
             {
                 outOfRange = true;
             }
@@ -124,7 +124,7 @@ namespace Snake
         }
 
     }
-    public enum Direction { Left,Right,Up,Down}
-    public enum TypesOfSteering { wsad, arrows};
+    public enum Direction { Left, Right, Up, Down }
+    public enum TypesOfSteering { wsad, arrows };
 
 }
