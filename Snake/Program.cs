@@ -12,12 +12,15 @@ namespace Snake
             
             TheGame theGame = new TheGame(2,1);
 
-            Task player1Game = new Task(theGame.StartGamePlayer1);
+            Task player1Game = new Task(theGame.Snakes[0].ChangeDirection);
             player1Game.Start();
-            Task player2Game = new Task(theGame.StartGamePlayer2);
+            Task player2Game = new Task(theGame.Snakes[1].ChangeDirection);
             player2Game.Start();
 
-            Task.WaitAll(player1Game, player2Game);
+            while(true)
+            {
+                theGame.Play();
+            }
         }
     }
 }

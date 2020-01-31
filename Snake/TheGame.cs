@@ -69,45 +69,18 @@ namespace Snake
 
             }
         }
-        async public void StartGamePlayer1()
+        public void Play()
         {
-            while (true)
-            {
-                double frameRate = 1000 / 100.0;
+                double frameRate = 1000 / 500;
                 DateTime lastDate = DateTime.Now;
-
-                Snake snake = Snakes[0];
-
-                snake.ChangeDirection();
                 if ((DateTime.Now - lastDate).TotalMilliseconds >= frameRate)
                 {
-                    snake.Move();
+                    MoveSnakes();
                     //theGame.CheckIfSnakesAteSnack();
                     //theGame.EndGameCheck();
 
                     lastDate = DateTime.Now;
                 }
-            }
-        }
-        async public void StartGamePlayer2()
-        {
-            while (true)
-            {
-                double frameRate = 1000 / 100.0;
-                DateTime lastDate = DateTime.Now;
-
-                Snake snake = Snakes[1];
-
-                snake.ChangeDirection();
-                if ((DateTime.Now - lastDate).TotalMilliseconds >= frameRate)
-                {
-                    snake.Move();
-                    //theGame.CheckIfSnakesAteSnack();
-                    //theGame.EndGameCheck();
-
-                    lastDate = DateTime.Now;
-                }
-            }
         }
     }
 }
