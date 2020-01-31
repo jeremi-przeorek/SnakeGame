@@ -9,20 +9,22 @@ namespace Snake
         {
             Console.CursorVisible = false;
             bool exit = false;
-            
-            TheGame theGame = new TheGame(2,1);
 
+            TheGame theGame = new TheGame(1, 1);
             HUD hud = new HUD("Jeremi", theGame.Snakes[0].Lenght);
 
-            Task player1Game = new Task(theGame.Snakes[0].ChangeDirection);
-            player1Game.Start();
-            Task player2Game = new Task(theGame.Snakes[1].ChangeDirection);
-            player2Game.Start();
+            double frameRate = 1000 / 20;
+            DateTime lastDate = DateTime.Now;
 
-            while(true)
+            while (true)
             {
-                theGame.Play();
-                hud.Refresh();
+                theGame.Snakes[0].ChangeDirection();
+                if ((DateTime.Now - lastDate).TotalMilliseconds >= frameRate)
+                {
+                    theGame.Play();
+                    hud.ScoreRefresh(theGame.Snakes[0].Lenght);
+                    lastDate = DateTime.Now;
+                }
             }
         }
     }
