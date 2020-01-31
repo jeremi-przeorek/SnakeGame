@@ -12,6 +12,8 @@ namespace Snake
             
             TheGame theGame = new TheGame(2,1);
 
+            HUD hud = new HUD("Jeremi", theGame.Snakes[0].Lenght);
+
             Task player1Game = new Task(theGame.Snakes[0].ChangeDirection);
             player1Game.Start();
             Task player2Game = new Task(theGame.Snakes[1].ChangeDirection);
@@ -20,6 +22,7 @@ namespace Snake
             while(true)
             {
                 theGame.Play();
+                hud.Refresh();
             }
         }
     }

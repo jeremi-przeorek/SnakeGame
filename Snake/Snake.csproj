@@ -46,6 +46,7 @@
     <Compile Include="Block.cs" />
     <Compile Include="Coordinate.cs" />
     <Compile Include="DataTime.cs" />
+    <Compile Include="HUD.cs" />
     <Compile Include="ISnake.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
