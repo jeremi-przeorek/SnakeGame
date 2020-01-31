@@ -24,6 +24,8 @@ namespace Snake
         public List<Snack> Snacks { get; set; } = new List<Snack>();
         public int NumberOfPlayers { get; set; }
 
+        public bool Exit = false;
+
         public void EndGameCheck()
         {
             if (Snakes.Where(x => x.GameOver == true).ToList().Count > 0)
@@ -31,7 +33,7 @@ namespace Snake
                 Console.Clear();
                 Console.SetCursorPosition(20, 10);
                 Console.WriteLine($"GAME OVER. YOUR SCORE = ");
-                //exit = true;
+                Exit = true;
                 Console.ReadLine();
             }
         }
