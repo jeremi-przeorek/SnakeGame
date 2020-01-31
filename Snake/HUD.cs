@@ -38,15 +38,20 @@ namespace Snake
         const string GameTitle = "SnakeGame by Jeremi Przeorek";
         int Score;
         
-        public void Refresh()
+        public void ScoreRefresh()
         {
             Console.SetCursorPosition(ScorePosition.X, ScorePosition.Y);
             Console.Write(Score);
         }
+        public void ScoreRefresh(int score)
+        {
+            Score = score;
+            ScoreRefresh();
+        }
 
         public void Init()
         {
-            Refresh();
+            ScoreRefresh();
             Console.SetCursorPosition(GameTitlePosition.X, GameTitlePosition.Y);
             Console.Write(GameTitle);
             Console.SetCursorPosition(PlayerNamePosition.X, PlayerNamePosition.Y);
