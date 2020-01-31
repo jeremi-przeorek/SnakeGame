@@ -13,7 +13,7 @@ namespace Snake
             NumberOfPlayers = numberOfPlayers;
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                Snakes.Add(new Snake(20 * i, 40,i));
+                Snakes.Add(new Snake(10 * i, 20,i));
             }
             for (int i = 0; i < numberOfSnacks; i++)
             {
@@ -71,16 +71,10 @@ namespace Snake
         }
         public void Play()
         {
-                double frameRate = 1000 / 500;
-                DateTime lastDate = DateTime.Now;
-                if ((DateTime.Now - lastDate).TotalMilliseconds >= frameRate)
-                {
-                    MoveSnakes();
-                    //theGame.CheckIfSnakesAteSnack();
-                    //theGame.EndGameCheck();
 
-                    lastDate = DateTime.Now;
-                }
+                    MoveSnakes();
+                    CheckIfSnakesAteSnack();
+                    EndGameCheck();
         }
     }
 }
