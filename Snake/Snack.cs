@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Snake
@@ -11,8 +12,9 @@ namespace Snake
         public Snack()
         {
             Random rand = new Random();
-            var x = rand.Next(1, 20);
-            var y = rand.Next(1, 20);
+            var x = rand.Next(6, 20);
+            Thread.Sleep(50);
+            var y = rand.Next(6, 20);
             CurrentTarget = new Coordinate(x, y);
             Draw();
         }
