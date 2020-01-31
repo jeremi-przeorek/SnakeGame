@@ -125,6 +125,6 @@ namespace Snake
 
     }
     public enum Direction { Left, Right, Up, Down }
-    public enum TypesOfSteering { wsad, arrows };
+    public enum TypesOfSteering { arrows,  wsad  };
 
 }
