@@ -73,7 +73,7 @@ namespace Snake
                 outOfRange = true;
             }
         }
-        async private void BeepAfterEat()
+        private void BeepAfterEat()
         {
             Console.Beep();
         }
