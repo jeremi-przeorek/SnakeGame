@@ -13,7 +13,7 @@ namespace Snake
             NumberOfPlayers = numberOfPlayers;
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                Snakes.Add(new Snake(10 * i, 20,i));
+                Snakes.Add(new Snake(40, 20,i));
             }
             for (int i = 0; i < numberOfSnacks; i++)
             {
