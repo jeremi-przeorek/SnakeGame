@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
+    <Compile Include="LimitBorder.cs" />
     <Compile Include="Coordinate.cs" />
     <Compile Include="DataTime.cs" />
     <Compile Include="HUD.cs" />
