@@ -78,6 +78,13 @@ namespace Snake
             Console.Beep();
         }
 
+        public bool HitWall(List<Coordinate> obstacle)
+        {
+            if (this.Tail.Any(x => obstacle.Contains(x)))
+                return true;
+            return false;
+        }
+
         public void ChangeDirection()
         {
             if (Console.KeyAvailable)
