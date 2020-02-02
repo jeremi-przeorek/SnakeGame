@@ -19,7 +19,7 @@ namespace Snake
             BlockSymbol = symbol;
             PaintSymbol();
         }
-        Coordinate coordinate = new Coordinate();
+        public Coordinate coordinate = new Coordinate();
         char BlockSymbol = '|';
 
         public void PaintSymbol()
