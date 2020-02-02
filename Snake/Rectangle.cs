@@ -8,17 +8,26 @@ namespace Snake
 {
     class Rectangle
     {
+        public Rectangle() { }
         public Rectangle(Coordinate leftUpCorner, Coordinate rightDownCorner, char symbol)
         {
-            Coordinate leftDownCorner = new Coordinate(leftUpCorner.X, rightDownCorner.Y);
-            Coordinate rightUpCorner = new Coordinate(rightDownCorner.X, leftUpCorner.Y);
+            LeftUpCorner = leftUpCorner;
+            RightUpCorner = new Coordinate(rightDownCorner.X, leftUpCorner.Y);
+            LeftDownCorner = new Coordinate(leftUpCorner.X, rightDownCorner.Y);
+            RightDownCorner = rightDownCorner;
+            Symbol = symbol;
 
-            Walls[0] = new Wall(leftUpCorner, rightUpCorner, symbol);
-            Walls[1] = new Wall(leftUpCorner, leftDownCorner, symbol);
-            Walls[2] = new Wall(rightUpCorner, rightDownCorner, symbol);
-            Walls[3] = new Wall(leftDownCorner, rightDownCorner, symbol);
+            Walls[0] = new Wall(LeftUpCorner, RightUpCorner, Symbol);
+            Walls[1] = new Wall(LeftUpCorner, LeftDownCorner, Symbol);
+            Walls[2] = new Wall(RightUpCorner, RightDownCorner, Symbol);
+            Walls[3] = new Wall(LeftDownCorner, RightDownCorner, Symbol);
         }
 
-        Wall[] Walls = new Wall[4];
+        protected Wall[] Walls = new Wall[4];
+        Coordinate LeftUpCorner;
+        Coordinate RightUpCorner;
+        Coordinate LeftDownCorner;
+        Coordinate RightDownCorner;
+        char Symbol;
     }
 }
