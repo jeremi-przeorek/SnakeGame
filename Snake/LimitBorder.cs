@@ -13,7 +13,7 @@ namespace Snake
             CreateEveryElementList();
         }
 
-        public List<Coordinate> EveryElementOfBorder = new List<Coordinate>();
+        public static List<Coordinate> EveryElementOfBorder = new List<Coordinate>();
 
         public void CreateEveryElementList()
         {

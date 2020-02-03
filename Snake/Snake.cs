@@ -28,7 +28,7 @@ namespace Snake
         private TypesOfSteering typesOfSteering = TypesOfSteering.arrows;
         public bool GameOver
         {
-            get { return Tail.Where(c => c.X == HeadCoordinate.X && c.Y == HeadCoordinate.Y).ToList().Count > 1 || outOfRange; }
+            get { return Tail.Where(c => c.X == HeadCoordinate.X && c.Y == HeadCoordinate.Y).ToList().Count > 1 || outOfRange || this.HitWall(); }
         }
         public void EatSnack()
         {
@@ -78,9 +78,9 @@ namespace Snake
             Console.Beep();
         }
 
-        public bool HitWall(List<Coordinate> obstacle)
+        public bool HitWall()
         {
-            if (this.Tail.Any(x => obstacle.Contains(x)))
+            if (this.Tail.Any(x => LimitBorder.EveryElementOfBorder.Contains(x)))
                 return true;
             return false;
         }
