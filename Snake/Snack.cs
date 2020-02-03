@@ -13,7 +13,7 @@ namespace Snake
         {
             Random rand = new Random();
             var x = rand.Next(2, 58);
-            var y = rand.Next(7, 28);
+            var y = rand.Next(8, 28);
             CurrentTarget = new Coordinate(x, y);
             Draw();
         }
