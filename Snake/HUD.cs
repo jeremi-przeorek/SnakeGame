@@ -10,9 +10,9 @@ namespace Snake
     {
         public HUD()
         {
-            PlayerNameFrame = new Rectangle(new Coordinate(1, 1), new Coordinate(15, 5), Symbol);
-            GameTitleFrame = new Rectangle(new Coordinate(15, 1), new Coordinate(45, 5), Symbol);
-            ScoreFrame = new Rectangle(new Coordinate(45, 1), new Coordinate(59, 5), Symbol);
+            PlayerNameFrame = new Rectangle(new Coordinate(1, 1), new Coordinate(15, 6), Symbol);
+            GameTitleFrame = new Rectangle(new Coordinate(15, 1), new Coordinate(45, 6), Symbol);
+            ScoreFrame = new Rectangle(new Coordinate(45, 1), new Coordinate(59, 6), Symbol);
             Init();
         }
         public HUD(string playerName) : this()
@@ -31,16 +31,19 @@ namespace Snake
         Rectangle ScoreFrame;
 
         Coordinate PlayerNamePosition = new Coordinate(5,3);
-        Coordinate GameTitlePosition = new Coordinate(20, 3);
+        Coordinate GameTitlePosition = new Coordinate(22, 3);
         Coordinate ScorePosition = new Coordinate(50,3);
 
         string PlayerName;
-        const string GameTitle = "SnakeGame by Jeremi Przeorek";
+        const string GameTitle = "SnakeGame";
+        const string GameTitle2 = "by Jeremi Przeorek";
+        const string PlayerNameTitle = "Player:";
+        const string ScoreTitle = "Score:";
         int Score;
         
         public void ScoreRefresh()
         {
-            Console.SetCursorPosition(ScorePosition.X, ScorePosition.Y);
+            Console.SetCursorPosition(ScorePosition.X, ScorePosition.Y+1);
             Console.Write(Score);
         }
         public void ScoreRefresh(int score)
@@ -52,10 +55,28 @@ namespace Snake
         public void Init()
         {
             ScoreRefresh();
+            GameTitleDisplay();
+            ScoreTitleDisplay();
+            PlayerNameDisplay();
+        }
+        public void PlayerNameDisplay()
+        {
+            Console.SetCursorPosition(PlayerNamePosition.X, PlayerNamePosition.Y);
+            Console.Write(PlayerNameTitle);
+            Console.SetCursorPosition(PlayerNamePosition.X, PlayerNamePosition.Y+1);
+            Console.Write(PlayerName);
+        }
+        public void GameTitleDisplay()
+        {
             Console.SetCursorPosition(GameTitlePosition.X, GameTitlePosition.Y);
             Console.Write(GameTitle);
-            Console.SetCursorPosition(PlayerNamePosition.X, PlayerNamePosition.Y);
-            Console.Write(PlayerName);
+            Console.SetCursorPosition(GameTitlePosition.X, GameTitlePosition.Y + 1);
+            Console.Write(GameTitle2);
+        }
+        public void ScoreTitleDisplay()
+        {
+            Console.SetCursorPosition(ScorePosition.X, ScorePosition.Y);
+            Console.Write(ScoreTitle);
         }
     }
 }
