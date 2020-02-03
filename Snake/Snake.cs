@@ -96,16 +96,20 @@ namespace Snake
                     switch (input.Key)
                     {
                         case ConsoleKey.LeftArrow:
-                            this.CurrDirection = Direction.Left;
+                            if(this.CurrDirection != Direction.Right)
+                               this.CurrDirection = Direction.Left;
                             break;
                         case ConsoleKey.RightArrow:
-                            this.CurrDirection = Direction.Right;
+                            if(this.CurrDirection != Direction.Left)
+                               this.CurrDirection = Direction.Right;
                             break;
                         case ConsoleKey.UpArrow:
-                            this.CurrDirection = Direction.Up;
+                            if (this.CurrDirection != Direction.Down)
+                                this.CurrDirection = Direction.Up;
                             break;
                         case ConsoleKey.DownArrow:
-                            this.CurrDirection = Direction.Down;
+                            if (this.CurrDirection != Direction.Up)
+                                this.CurrDirection = Direction.Down;
                             break;
                     }
                 }
@@ -114,16 +118,20 @@ namespace Snake
                     switch (input.Key)
                     {
                         case ConsoleKey.A:
-                            this.CurrDirection = Direction.Left;
+                            if (this.CurrDirection != Direction.Right)
+                                this.CurrDirection = Direction.Left;
                             break;
                         case ConsoleKey.D:
-                            this.CurrDirection = Direction.Right;
+                            if (this.CurrDirection != Direction.Left)
+                                this.CurrDirection = Direction.Right;
                             break;
                         case ConsoleKey.W:
-                            this.CurrDirection = Direction.Up;
+                            if (this.CurrDirection != Direction.Down)
+                                this.CurrDirection = Direction.Up;
                             break;
                         case ConsoleKey.S:
-                            this.CurrDirection = Direction.Down;
+                            if (this.CurrDirection != Direction.Up)
+                                this.CurrDirection = Direction.Down;
                             break;
                     }
                 }
@@ -132,6 +140,6 @@ namespace Snake
 
     }
     public enum Direction { Left, Right, Up, Down }
-    public enum TypesOfSteering { arrows,  wsad  };
+    public enum TypesOfSteering { wsad,  arrows  };
 
 }
