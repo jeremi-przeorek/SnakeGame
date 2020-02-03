@@ -10,9 +10,9 @@ namespace Snake
     {
         public HUD()
         {
-            PlayerNameFrame = new Rectangle(new Coordinate(1, 1), new Coordinate(20, 5), Symbol);
-            GameTitleFrame = new Rectangle(new Coordinate(21, 1), new Coordinate(80, 5), Symbol);
-            ScoreFrame = new Rectangle(new Coordinate(81, 1), new Coordinate(101, 5), Symbol);
+            PlayerNameFrame = new Rectangle(new Coordinate(1, 1), new Coordinate(15, 5), Symbol);
+            GameTitleFrame = new Rectangle(new Coordinate(15, 1), new Coordinate(45, 5), Symbol);
+            ScoreFrame = new Rectangle(new Coordinate(45, 1), new Coordinate(59, 5), Symbol);
             Init();
         }
         public HUD(string playerName) : this()
@@ -30,9 +30,9 @@ namespace Snake
         Rectangle GameTitleFrame;
         Rectangle ScoreFrame;
 
-        Coordinate PlayerNamePosition = new Coordinate(10,3);
-        Coordinate GameTitlePosition = new Coordinate(40, 3);
-        Coordinate ScorePosition = new Coordinate(84,3);
+        Coordinate PlayerNamePosition = new Coordinate(5,3);
+        Coordinate GameTitlePosition = new Coordinate(20, 3);
+        Coordinate ScorePosition = new Coordinate(50,3);
 
         string PlayerName;
         const string GameTitle = "SnakeGame by Jeremi Przeorek";

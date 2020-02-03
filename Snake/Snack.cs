@@ -12,8 +12,8 @@ namespace Snake
         public Snack()
         {
             Random rand = new Random();
-            var x = rand.Next(6, 20);
-            var y = rand.Next(6, 20);
+            var x = rand.Next(2, 58);
+            var y = rand.Next(7, 28);
             CurrentTarget = new Coordinate(x, y);
             Draw();
         }
