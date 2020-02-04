@@ -22,7 +22,7 @@ namespace Snake
             {
                 for (int j = 0; j < Walls[i].ElementsWall.Count-1; j++)
                 {
-                    EveryElementOfBorder.Add(Walls[i].ElementsWall[j].coordinate);
+                    EveryElementOfBorder.Add(Walls[i].ElementsWall[j].Position);
                 }
             }
         }
