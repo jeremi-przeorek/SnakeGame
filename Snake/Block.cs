@@ -19,6 +19,12 @@ namespace Snake
             BlockSymbol = symbol;
             Paint();
         }
+        public Block(Coordinate position, char symbol)
+        {
+            Position = position;
+            BlockSymbol = symbol;
+            Paint();
+        }
         public Coordinate Position = new Coordinate();
         char BlockSymbol = '|';
 
@@ -31,13 +37,6 @@ namespace Snake
         {
             Console.SetCursorPosition(Position.X, Position.Y);
             Console.Write(" ");
-        }
-        public void Move(int offsetX, int offsetY)
-        {
-            Erase();
-            Position.X += offsetX;
-            Position.Y += offsetY;
-            Paint();
         }
     }
 }
