@@ -71,8 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banner.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="Indicator.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Slot.cs" />
     <Compile Include="LimitBorder.cs" />
