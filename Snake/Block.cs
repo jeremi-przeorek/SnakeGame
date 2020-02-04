@@ -10,22 +10,34 @@ namespace Snake
     {
         public Block(int x, int y)
         {
-            coordinate.X = x;
-            coordinate.Y = y;
-            PaintSymbol();
+            Position.X = x;
+            Position.Y = y;
+            Paint();
         }
         public Block(int x, int y, char symbol) : this(x, y)
         {
             BlockSymbol = symbol;
-            PaintSymbol();
+            Paint();
         }
-        public Coordinate coordinate = new Coordinate();
+        public Coordinate Position = new Coordinate();
         char BlockSymbol = '|';
 
-        public void PaintSymbol()
+        public void Paint()
         {
-            Console.SetCursorPosition(coordinate.X, coordinate.Y);
+            Console.SetCursorPosition(Position.X, Position.Y);
             Console.Write(BlockSymbol);
+        }
+        public void Erase()
+        {
+            Console.SetCursorPosition(Position.X, Position.Y);
+            Console.Write(" ");
+        }
+        public void Move(int offsetX, int offsetY)
+        {
+            Erase();
+            Position.X += offsetX;
+            Position.Y += offsetY;
+            Paint();
         }
     }
 }
