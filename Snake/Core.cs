@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Snake
 {
@@ -14,20 +15,27 @@ namespace Snake
             Console.Clear();
             Console.CursorVisible = false;
             var nextMenu = Menu.ShowInitial();
-            SelectMenu(nextMenu);
+            OpenMenu(nextMenu);
         }
-
-        static public void SelectMenu(string nextMenu)
+        static public void OpenMenu(string nextMenu)
         {
-            switch(nextMenu)
+            Console.Beep(1000, 20);
+            Console.Beep(1200, 20);
+            switch (nextMenu)
             {
                 case "PlayGame":
                     PlayGame();
                     break;
                 case "Exit":
-                    throw new NotImplementedException();
+                    System.Environment.Exit(0);
+                    break;
                 case "HighScores":
                     throw new NotImplementedException();
+                    break;
+                case "Main Menu":
+                    var nextmenu = Menu.ShowInitial();
+                    Core.OpenMenu(nextmenu);
+                    break;
 
             }
         }
@@ -38,7 +46,7 @@ namespace Snake
             HUD hud = new HUD("Jeremi", theGame.Snakes[0].Lenght);
             LimitBorder limitBorder = new LimitBorder(new Coordinate(1, 7), new Coordinate(59, 29), '@');
 
-            double frameRate = 1000 / 25;
+            double frameRate = 1000 / 15;
             DateTime lastDate = DateTime.Now;
 
             while (!theGame.Exit)
@@ -51,7 +59,8 @@ namespace Snake
                     lastDate = DateTime.Now;
                 }
             }
-            Console.ReadLine();
+            string nextMenu = Menu.ShowAfterDeath();
+            Core.OpenMenu(nextMenu);
         }
     }
 }

@@ -30,11 +30,7 @@ namespace Snake
         {
             if (Snakes.Where(x => x.GameOver == true).ToList().Count > 0)
             {
-                Console.Clear();
-                Console.SetCursorPosition(20, 10);
-                Console.WriteLine($"GAME OVER. YOUR SCORE = ");
-                Exit = true;
-                Console.ReadLine();
+                this.Exit = true;
             }
         }
         public void ChangeSnakesDirections()

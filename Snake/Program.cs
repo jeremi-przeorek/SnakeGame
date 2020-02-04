@@ -7,12 +7,8 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                Core.Init();
-
-                
-            }
+           
+            Core.Init();
         }
     }
 }
