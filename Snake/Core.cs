@@ -33,8 +33,12 @@ namespace Snake
                     throw new NotImplementedException();
                     break;
                 case "Main Menu":
-                    var nextmenu = Menu.ShowInitial();
-                    Core.OpenMenu(nextmenu);
+                    var FromInitialNextMenu = Menu.ShowInitial();
+                    Core.OpenMenu(FromInitialNextMenu);
+                    break;
+                case "PlayerNameTyper":
+                    var FromPlayerNameTypeNextMenu = Menu.ShowPlayerNameTyper();
+                    Core.OpenMenu(FromPlayerNameTypeNextMenu);
                     break;
 
             }
@@ -43,7 +47,7 @@ namespace Snake
         {
             Console.Clear();
             TheGame theGame = new TheGame(1, 1);
-            HUD hud = new HUD("Jeremi", theGame.Snakes[0].Lenght);
+            HUD hud = new HUD(Menu.SelectedName, theGame.Snakes[0].Lenght);
             LimitBorder limitBorder = new LimitBorder(new Coordinate(1, 7), new Coordinate(59, 29), '@');
 
             double frameRate = 1000 / 15;

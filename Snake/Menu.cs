@@ -8,13 +8,14 @@ namespace Snake
 {
     static class Menu
     {
+        public static string SelectedName = "";
         public static string ShowInitial()
         {
             bool exitMenu = false;
             Console.Clear();
             Banner banner = new Banner(new Coordinate(9, 5));
             Coordinate SlotsPosition = new Coordinate(25, 13);
-            Slot play = new Slot("Play", SlotsPosition, "PlayGame");
+            Slot play = new Slot("Play", SlotsPosition, "PlayerNameTyper");
             Slot highScore = new Slot("High Scores", SlotsPosition + new Coordinate(0, 2), "OpenHighScores");
             Slot exit = new Slot("Exit", SlotsPosition + new Coordinate(0, 4), "Exit");
             Slot[] slots = { play, highScore, exit };
@@ -69,8 +70,8 @@ namespace Snake
 
             while (!exitMenu)
             {
-                Coordinate upOffset = new Coordinate(0,2);
-                Coordinate downOffset = new Coordinate(0,-2);
+                Coordinate upOffset = new Coordinate(0, 2);
+                Coordinate downOffset = new Coordinate(0, -2);
                 ConsoleKeyInfo input = Console.ReadKey(true);
                 switch (input.Key)
                 {
@@ -93,6 +94,30 @@ namespace Snake
                         break;
                 }
             }
+            return output;
+        }
+
+        public static string ShowPlayerNameTyper()
+        {
+            Console.Clear();
+            Banner banner = new Banner(new Coordinate(9, 5));
+            Rectangle border = new Rectangle(new Coordinate(1, 1), new Coordinate(59, 29), '#');
+            Console.SetCursorPosition(20, 13);
+            Console.Write("Type player name:");
+            Console.SetCursorPosition(20, 14);
+            do
+            {
+                Console.SetCursorPosition(20, 14);
+                SelectedName = Console.ReadLine();
+                if(SelectedName.Length >= 10)
+                {
+                    Console.SetCursorPosition(20, 13);
+                    Console.Write("Player Name too long!");
+                    Console.SetCursorPosition(20, 14);
+                    Console.Write("                                       ");
+                }
+            } while (SelectedName.Length >= 10);
+            string output = "PlayGame";
             return output;
         }
     }
