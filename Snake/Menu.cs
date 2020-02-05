@@ -25,14 +25,22 @@ namespace Snake
 
             while (!exitMenu)
             {
+                Coordinate upOffset = new Coordinate(0, 2);
+                Coordinate downOffset = new Coordinate(0, -2);
                 ConsoleKeyInfo input = Console.ReadKey(true);
                 switch (input.Key)
                 {
                     case ConsoleKey.DownArrow:
-                        indicator.Move(0, 2);
+                        if (slots.Where(x => x.Position.Y.Equals(indicator.Position.Y - downOffset.Y)).ToList().Count > 0)
+                        {
+                            indicator.Move(new Coordinate(0, 2));
+                        }
                         break;
                     case ConsoleKey.UpArrow:
-                        indicator.Move(0, -2);
+                        if (slots.Where(x => x.Position.Y.Equals(indicator.Position.Y + downOffset.Y)).ToList().Count > 0)
+                        {
+                            indicator.Move(new Coordinate(0, -2));
+                        }
                         break;
                     case ConsoleKey.Enter:
                         var selectedMenu = slots.Where(x => x.Position.Y.Equals(indicator.Position.Y)).ToArray();
@@ -61,17 +69,22 @@ namespace Snake
 
             while (!exitMenu)
             {
-                int actualIndicatorPosition = slots.Length;
+                Coordinate upOffset = new Coordinate(0,2);
+                Coordinate downOffset = new Coordinate(0,-2);
                 ConsoleKeyInfo input = Console.ReadKey(true);
                 switch (input.Key)
                 {
                     case ConsoleKey.DownArrow:
-                        indicator.Move(0, 2);
-                        actualIndicatorPosition--;
+                        if (slots.Where(x => x.Position.Y.Equals(indicator.Position.Y - downOffset.Y)).ToList().Count > 0)
+                        {
+                            indicator.Move(new Coordinate(0, 2));
+                        }
                         break;
                     case ConsoleKey.UpArrow:
-                        indicator.Move(0, -2);
-                        actualIndicatorPosition--;
+                        if (slots.Where(x => x.Position.Y.Equals(indicator.Position.Y + downOffset.Y)).ToList().Count > 0)
+                        {
+                            indicator.Move(new Coordinate(0, -2));
+                        }
                         break;
                     case ConsoleKey.Enter:
                         var selectedMenu = slots.Where(x => x.Position.Y.Equals(indicator.Position.Y)).ToArray();
