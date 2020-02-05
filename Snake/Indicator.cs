@@ -9,13 +9,14 @@ namespace Snake
     class Indicator : Block
     {
         public Indicator(Coordinate position, char symbol) : base(position, symbol) { }
-        public void Move(int offsetX, int offsetY)
+        public void Move(Coordinate offset)
         {
-            base.Erase();
-            base.Position.X += offsetX;
-            base.Position.Y += offsetY;
-            base.Paint();
-            Console.Beep(1000, 20);
+                base.Erase();
+                base.Position += offset;
+                base.Paint();
+                Console.Beep(1000, 20);
         }
+
+
     }
 }
